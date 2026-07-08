@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Una Historia, Un Himno · Manifestación Cívica Nacional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;600&family=Archivo+Narrow:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1B2438;
+    --cream:#F7F3EA;
+    --paper:#FBF8F2;
+    --burgundy:#8B1E3F;
+    --gold:#C9973A;
+    --charcoal:#2A2A28;
+    --line:#DCD3BF;
+    --ink-soft:#5B5A54;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--charcoal);
+    font-family:'Source Sans 3', sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    color:var(--navy);
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+
+  .eyebrow{
+    font-family:'Archivo Narrow', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.16em;
+    font-size:0.78rem;
+    font-weight:600;
+    color:var(--burgundy);
+  }
+
+  .rule{
+    width:64px;
+    height:5px;
+    display:flex;
+    margin:14px auto;
+  }
+  .rule span{flex:1;height:100%;}
+  .rule .r1{background:var(--burgundy);}
+  .rule .r2{background:var(--gold);}
+  .rule .r3{background:var(--burgundy);}
+  .rule.left{margin:14px 0;}
+
+  a{color:inherit;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    width:100%;
+    line-height:0;
+  }
+  .hero img{
+    width:100%;
+    display:block;
+  }
+  .hero-cta-hit{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    bottom:6.2%;
+    width:22%;
+    min-width:180px;
+    height:9.5%;
+    min-height:44px;
+    border-radius:6px;
+  }
+  .hero-cta-hit:focus-visible{
+    outline:3px solid #fff;
+    outline-offset:3px;
+  }
+
+  /* ---------- COUNTDOWN ---------- */
+  .countdown{
+    background:var(--navy);
+    padding:40px 24px 34px;
+    text-align:center;
+  }
+  .countdown .eyebrow{color:var(--gold); margin-bottom:8px;}
+  .countdown-grid{
+    display:flex;
+    align-items:baseline;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .cd-cell{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    min-width:64px;
+  }
+  .cd-num{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(2rem, 6vw, 2.9rem);
+    color:#fff;
+    font-variant-numeric:tabular-nums;
+    line-height:1;
+  }
+  .cd-lbl{
+    font-family:'Archivo Narrow', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    font-size:0.72rem;
+    color:#C9C4B4;
+    margin-top:6px;
+  }
+  .cd-sep{
+    font-family:'Fraunces', serif;
+    font-size:clamp(1.6rem, 5vw, 2.4rem);
+    color:var(--gold);
+    align-self:flex-start;
+    margin-top:2px;
+  }
+  .countdown-note{
+    margin:18px 0 0;
+    font-size:0.85rem;
+    color:#B9B4A4;
+  }
+  .countdown.is-past .countdown-note{color:var(--gold);}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{
+    max-width:760px;
+    margin:0 auto;
+    padding:88px 24px;
+  }
+  section.wide{max-width:1000px;}
+  .center{text-align:center;}
+
+  section + section{
+    border-top:1px solid var(--line);
+  }
+
+  h2.title{
+    font-size:clamp(1.7rem, 3vw, 2.3rem);
+    font-weight:600;
+    margin-top:6px;
+  }
+
+  p.lead{
+    font-size:1.08rem;
+    color:var(--ink-soft);
+    max-width:620px;
+    margin:22px auto 0;
+  }
+
+  /* ---------- OBJETIVO ---------- */
+  .objetivo-body p{margin:0 0 18px;}
+  .not-list{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin:28px 0;
+    padding:22px 26px;
+    background:var(--paper);
+    border-left:3px solid var(--burgundy);
+  }
+  .not-list span{font-weight:600;color:var(--navy);}
+
+  /* ---------- IMPULSOR ---------- */
+  .impulsor{
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:36px;
+    align-items:start;
+  }
+  .impulsor img{
+    width:150px;
+    height:150px;
+    object-fit:cover;
+    border-radius:4px;
+    filter:grayscale(15%);
+  }
+  .impulsor h3{font-size:1.4rem;}
+  .impulsor .role{
+    font-family:'Archivo Narrow', sans-serif;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+    margin:4px 0 16px;
+  }
+  .tags{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    margin-top:18px;
+    font-size:0.92rem;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- TRANSPARENCIA ---------- */
+  .transparencia{
+    background:var(--navy);
+    color:#EDE9DD;
+  }
+  .transparencia .eyebrow{color:var(--gold);}
+  .transparencia h2{color:#fff;}
+  .transparencia p{color:#C9C4B4;}
+
+  /* ---------- FECHA / CLAVES ---------- */
+  .keydates{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line);
+    margin-top:44px;
+    border:1px solid var(--line);
+  }
+  .keydates .cell{
+    background:var(--paper);
+    padding:30px 20px;
+    text-align:center;
+  }
+  .keydates .cell .num{
+    font-family:'Fraunces', serif;
+    font-size:1.9rem;
+    color:var(--burgundy);
+    font-weight:600;
+  }
+  .keydates .cell .lbl{
+    font-family:'Archivo Narrow', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    font-size:0.78rem;
+    color:var(--ink-soft);
+    margin-top:6px;
+  }
+
+  /* ---------- RECORRIDO IMAGE ---------- */
+  .recorrido-wrap{
+    max-width:900px;
+    margin:0 auto;
+    padding:88px 24px;
+    text-align:center;
+  }
+  .recorrido-wrap img{
+    width:100%;
+    max-width:640px;
+    border-radius:4px;
+    box-shadow:0 24px 60px -30px rgba(27,36,56,0.4);
+  }
+
+  /* ---------- PROGRAMA ---------- */
+  .programa-list{
+    margin-top:40px;
+    display:flex;
+    flex-direction:column;
+  }
+  .prog-row{
+    display:grid;
+    grid-template-columns:90px 1fr;
+    gap:24px;
+    padding:20px 0;
+    border-top:1px solid var(--line);
+  }
+  .prog-row:last-child{border-bottom:1px solid var(--line);}
+  .prog-row .time{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    color:var(--burgundy);
+    font-size:1.15rem;
+  }
+  .prog-row .desc{color:var(--charcoal);}
+
+  /* ---------- SILENCIO signature block ---------- */
+  .silencio{
+    background:var(--paper);
+    text-align:center;
+  }
+  .silencio .icon{
+    width:52px;height:52px;margin:0 auto 20px;
+    opacity:0;
+    animation:fadeUp 1s ease forwards;
+  }
+  .silencio h2{font-size:clamp(1.6rem,3.4vw,2.1rem);}
+  .silencio .big{
+    font-family:'Fraunces', serif;
+    font-weight:300;
+    font-size:clamp(2.2rem,6vw,3.6rem);
+    color:var(--navy);
+    margin:18px 0;
+    opacity:0;
+    animation:fadeUp 1s ease 0.15s forwards;
+  }
+  .silencio .big em{
+    font-style:normal;
+    color:var(--burgundy);
+    font-weight:600;
+  }
+  @keyframes fadeUp{
+    from{opacity:0; transform:translateY(10px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .silencio .icon, .silencio .big{animation:none; opacity:1;}
+  }
+
+  /* ---------- COMPROMISOS ---------- */
+  .compromisos{
+    margin-top:36px;
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+  .compromiso-item{
+    display:flex;
+    gap:16px;
+    padding:18px 0;
+    border-top:1px solid var(--line);
+  }
+  .compromiso-item:last-child{border-bottom:1px solid var(--line);}
+  .compromiso-item .mark{
+    color:var(--gold);
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    flex-shrink:0;
+  }
+
+  .closing-note{
+    margin-top:36px;
+    padding:26px 28px;
+    background:var(--navy);
+    color:#EDE9DD;
+    font-family:'Fraunces', serif;
+    font-size:1.15rem;
+    font-style:italic;
+    text-align:center;
+    line-height:1.6;
+  }
+
+  /* ---------- LEMA ---------- */
+  .lema{
+    background:var(--navy);
+    text-align:center;
+    padding:110px 24px;
+  }
+  .lema .word{
+    display:block;
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    letter-spacing:0.02em;
+    line-height:1.15;
+  }
+  .lema .w1{font-size:clamp(1.6rem,4vw,2.3rem); color:#C9C4B4;}
+  .lema .w2{font-size:clamp(1.6rem,4vw,2.3rem); color:#C9C4B4;}
+  .lema .w3{font-size:clamp(2.4rem,6.5vw,4rem); color:#fff; margin-top:8px;}
+
+  /* ---------- REGISTRO ---------- */
+  .registro{
+    text-align:center;
+  }
+  .registro .checkbox-row{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    justify-content:center;
+    max-width:420px;
+    margin:34px auto 30px;
+    text-align:left;
+    font-size:0.95rem;
+    color:var(--ink-soft);
+  }
+  .registro .checkbox-row input{margin-top:4px;}
+
+  .btn-primary{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--burgundy);
+    color:#fff;
+    font-family:'Archivo Narrow', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    font-weight:600;
+    font-size:0.95rem;
+    padding:17px 36px;
+    border-radius:4px;
+    text-decoration:none;
+    border:none;
+    cursor:pointer;
+    transition:background 0.2s ease, transform 0.2s ease;
+  }
+  .btn-primary:hover{background:#6f1731; transform:translateY(-1px);}
+  .btn-primary:focus-visible{outline:3px solid var(--gold); outline-offset:3px;}
+
+  .registro .fineprint{
+    margin-top:20px;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+  }
+
+  footer{
+    text-align:center;
+    padding:48px 24px 60px;
+    font-family:'Archivo Narrow', sans-serif;
+    font-size:0.82rem;
+    color:var(--ink-soft);
+    letter-spacing:0.04em;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:640px){
+    section{padding:64px 20px;}
+    .impulsor{grid-template-columns:1fr; text-align:center;}
+    .impulsor img{margin:0 auto;}
+    .tags{align-items:center;}
+    .keydates{grid-template-columns:1fr;}
+    .prog-row{grid-template-columns:70px 1fr;}
+    .lema{padding:70px 20px;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <img src="images/Cabecera.png" alt="Una Historia, Un Himno — Manifestación Cívica Nacional, 14 de noviembre de 2026, Madrid. Caminaremos en silencio, cantaremos unidos.">
+    <a href="https://www.eventbrite.es" class="hero-cta-hit" aria-label="Quiero participar — ir al registro de inscripción" target="_blank" rel="noopener"></a>
+  </div>
+
+  <!-- CUENTA ATRÁS -->
+  <div class="countdown">
+    <p class="eyebrow center">Faltan</p>
+    <div class="countdown-grid" id="countdown" aria-live="off">
+      <div class="cd-cell"><span class="cd-num" id="cd-days">--</span><span class="cd-lbl">Días</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-cell"><span class="cd-num" id="cd-hours">--</span><span class="cd-lbl">Horas</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-cell"><span class="cd-num" id="cd-mins">--</span><span class="cd-lbl">Min</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-cell"><span class="cd-num" id="cd-secs">--</span><span class="cd-lbl">Seg</span></div>
+    </div>
+    <p class="countdown-note">para la concentración en Plaza de Cibeles · sábado 14 de noviembre de 2026 · 09:00</p>
+  </div>
+
+  <!-- OBJETIVO -->
+  <section id="objetivo">
+    <div class="center">
+      <p class="eyebrow">Objetivo</p>
+      <div class="rule center" style="margin-left:auto;margin-right:auto;"><span class="r1"></span><span class="r2"></span><span class="r3"></span></div>
+      <h2 class="title">Un homenaje cívico, no una consigna</h2>
+    </div>
+    <div class="objetivo-body" style="margin-top:34px;">
+      <p>El objetivo de esta convocatoria es rendir un homenaje cívico y respetuoso a todas las generaciones que han construido España y promover, por los cauces democráticos y desde el respeto institucional, el debate sobre la posibilidad de que el Himno Nacional de España pueda volver a ser cantado oficialmente.</p>
+    </div>
+    <div class="not-list">
+      <div><span>No es</span> una manifestación partidista.</div>
+      <div><span>No es</span> una protesta contra nadie.</div>
+      <div><span>Es</span> un encuentro ciudadano abierto a todas las personas que desean expresar, desde el respeto, su compromiso con la historia, la unidad y los símbolos comunes de nuestra nación.</div>
+    </div>
+  </section>
+
+  <!-- IMPULSOR -->
+  <section id="impulsor">
+    <p class="eyebrow center">Impulsor de la iniciativa</p>
+    <div class="impulsor" style="margin-top:34px;">
+      <img src="images/luisRueda.jpg" alt="Luis Rueda, impulsor de la iniciativa">
+      <div>
+        <h3>Luis Rueda</h3>
+        <p class="role">Comunicador, autor y promotor de esta iniciativa ciudadana</p>
+        <p>Tras años investigando la historia del Himno de España y el recorrido jurídico de las distintas propuestas para dotarlo de una letra, impulsa este encuentro cívico con el objetivo de abrir un debate sereno y respetuoso sobre la posibilidad de que los españoles puedan volver a cantar oficialmente su himno.</p>
+        <p>Esta convocatoria no nace desde ningún partido político ni organización, sino desde el compromiso personal de un ciudadano que cree que los símbolos nacionales pertenecen a todos los españoles y que el diálogo es el mejor camino para construir consensos.</p>
+        <p>La manifestación constituye el primer paso de un proyecto cívico más amplio que pretende trasladar esta propuesta a las instituciones por las vías legalmente establecidas.</p>
+        <p style="font-style:italic; color:var(--navy);">Porque los grandes cambios también pueden comenzar con la iniciativa de un solo ciudadano.</p>
+        <div class="tags">
+          <span>🎙️ Comunicador</span>
+          <span>📖 Autor de <em>La Voz del Ciudadano</em></span>
+          <span>🇪🇸 Promotor de la iniciativa ciudadana "Una Historia, Un Himno"</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSPARENCIA -->
+  <section id="transparencia" class="transparencia">
+    <div class="center">
+      <p class="eyebrow">Transparencia</p>
+      <h2 class="title" style="margin-top:14px;">De quién es esta iniciativa</h2>
+      <p class="lead">Esta iniciativa es de carácter ciudadano y no está promovida ni financiada por partidos políticos, administraciones públicas ni organizaciones con representación institucional. Toda la información relativa a la convocatoria, su organización y su evolución se publicará exclusivamente a través de esta página web y de los canales oficiales de Luis Rueda.</p>
+    </div>
+  </section>
+
+  <!-- FECHA / CLAVES -->
+  <section id="fecha" class="wide">
+    <div class="center">
+      <p class="eyebrow">Sábado, 14 de noviembre de 2026 · Madrid</p>
+      <h2 class="title" style="margin-top:14px;">Los tres momentos de la jornada</h2>
+    </div>
+    <div class="keydates">
+      <div class="cell">
+        <div class="num">09:00</div>
+        <div class="lbl">Concentración — Plaza de Cibeles</div>
+      </div>
+      <div class="cell">
+        <div class="num">10:00</div>
+        <div class="lbl">Inicio de la marcha en silencio</div>
+      </div>
+      <div class="cell">
+        <div class="num">10:35</div>
+        <div class="lbl">Llegada — Plaza de Colón</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECORRIDO -->
+  <div class="recorrido-wrap">
+    <p class="eyebrow">Recorrido</p>
+    <h2 class="title" style="margin-top:14px;">De Cibeles a Colón, por Recoletos</h2>
+    <img src="images/recorrido.png" alt="Mapa del recorrido: salida en Plaza de Cibeles, marcha por el Paseo de Recoletos, llegada a los Jardines del Descubrimiento en Plaza de Colón, aproximadamente 40 minutos en silencio.">
+  </div>
+
+  <!-- PROGRAMA -->
+  <section id="programa" class="wide">
+    <div class="center">
+      <p class="eyebrow">Programa</p>
+      <h2 class="title" style="margin-top:14px;">Minuto a minuto</h2>
+    </div>
+    <div class="programa-list">
+      <div class="prog-row"><div class="time">09:00</div><div class="desc">Recepción de asistentes.</div></div>
+      <div class="prog-row"><div class="time">10:00</div><div class="desc">Inicio de la marcha silenciosa.</div></div>
+      <div class="prog-row"><div class="time">10:35</div><div class="desc">Llegada a la Plaza de Colón.</div></div>
+      <div class="prog-row"><div class="time">10:40</div><div class="desc">Breve intervención institucional.</div></div>
+      <div class="prog-row"><div class="time">10:50</div><div class="desc">Interpretación de la Marcha Real, con la posibilidad de acompañarla con la adaptación de José María Pemán (1928).</div></div>
+      <div class="prog-row"><div class="time">11:00</div><div class="desc">Disolución ordenada de la concentración.</div></div>
+    </div>
+  </section>
+
+  <!-- SILENCIO signature -->
+  <section class="silencio">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 10v4h4l5 5V5L7 10H3z" stroke="#8B1E3F" stroke-width="1.4" stroke-linejoin="round"/>
+      <path d="M17 8.5c1.2 1 1.2 5.9 0 7" stroke="#C9973A" stroke-width="1.4" stroke-linecap="round"/>
+      <line x1="19.5" y1="6" x2="4" y2="19" stroke="#8B1E3F" stroke-width="1.4" stroke-linecap="round"/>
+    </svg>
+    <p class="eyebrow">Cuarenta minutos</p>
+    <div class="big">Caminaremos en <em>silencio</em>.<br>Cantaremos <em>unidos</em>.</div>
+    <p class="lead" style="margin:0 auto;">Ese silencio representa un homenaje colectivo a quienes nos precedieron y un compromiso con quienes construirán la España del futuro.</p>
+  </section>
+
+  <!-- QUIÉN PUEDE PARTICIPAR -->
+  <section id="participar">
+    <div class="center">
+      <p class="eyebrow">¿Quién puede participar?</p>
+      <h2 class="title" style="margin-top:14px;">Abierto a cualquiera, desde el respeto</h2>
+    </div>
+    <div class="compromisos">
+      <div class="compromiso-item"><span class="mark">—</span><span>Mantener el silencio durante todo el recorrido.</span></div>
+      <div class="compromiso-item"><span class="mark">—</span><span>Respetar las indicaciones de la organización y de las Fuerzas y Cuerpos de Seguridad.</span></div>
+      <div class="compromiso-item"><span class="mark">—</span><span>No realizar consignas, insultos, provocaciones o manifestaciones de carácter partidista.</span></div>
+      <div class="compromiso-item"><span class="mark">—</span><span>No portar pancartas, banderas o elementos cuyo objetivo sea generar confrontación o desvirtuar el carácter cívico del encuentro.</span></div>
+      <div class="compromiso-item"><span class="mark">—</span><span>Seguir en todo momento las indicaciones de los voluntarios de la organización.</span></div>
+      <div class="compromiso-item"><span class="mark">—</span><span>Mantener una actitud de respeto hacia el resto de participantes.</span></div>
+    </div>
+    <div class="closing-note">
+      La mejor forma de honrar nuestra historia será demostrar que miles de ciudadanos pueden caminar juntos en absoluto respeto y silencio.
+    </div>
+  </section>
+
+  <!-- LEMA -->
+  <div class="lema">
+    <span class="word w1">UNA HISTORIA</span>
+    <span class="word w2">UN HIMNO</span>
+    <span class="word w3">UNA ESPAÑA</span>
+  </div>
+
+  <!-- REGISTRO -->
+  <section id="registro" class="registro">
+    <p class="eyebrow">Registro</p>
+    <h2 class="title" style="margin-top:14px;">Tu presencia también puede formar parte de la historia</h2>
+    <p class="lead">Si deseas acompañarnos en este encuentro cívico y ayudarnos a organizar correctamente la convocatoria, confirma tu asistencia mediante el siguiente registro. Para facilitar la coordinación con la Delegación del Gobierno y los servicios de seguridad, agradecemos que confirmes previamente tu asistencia.</p>
+
+    <div class="checkbox-row">
+      <input type="checkbox" id="optin" name="optin">
+      <label for="optin">Acepto recibir información sobre esta convocatoria.</label>
+    </div>
+
+    <a href="https://www.eventbrite.es" class="btn-primary" target="_blank" rel="noopener">Quiero participar →</a>
+
+    <p class="fineprint">Al hacer clic serás redirigido a la plataforma oficial de inscripción (Eventbrite).</p>
+  </section>
+
+  <footer>
+    UNA HISTORIA, UN HIMNO — Manifestación Cívica Nacional · 14 de noviembre de 2026 · Madrid<br>
+    Iniciativa ciudadana no vinculada a partidos políticos, administraciones públicas ni organizaciones con representación institucional.
+  </footer>
+
+  <script>
+    (function(){
+      var target = new Date("2026-11-14T09:00:00+01:00").getTime();
+      var daysEl = document.getElementById('cd-days');
+      var hoursEl = document.getElementById('cd-hours');
+      var minsEl = document.getElementById('cd-mins');
+      var secsEl = document.getElementById('cd-secs');
+      var wrap = document.querySelector('.countdown');
+      var note = document.querySelector('.countdown-note');
+
+      function pad(n){ return String(n).padStart(2,'0'); }
+
+      function tick(){
+        var now = Date.now();
+        var diff = target - now;
+
+        if (diff <= 0){
+          daysEl.textContent = '00';
+          hoursEl.textContent = '00';
+          minsEl.textContent = '00';
+          secsEl.textContent = '00';
+          wrap.classList.add('is-past');
+          note.textContent = 'La concentración en Plaza de Cibeles ya ha comenzado.';
+          clearInterval(timer);
+          return;
+        }
+
+        var d = Math.floor(diff / 86400000);
+        var h = Math.floor((diff % 86400000) / 3600000);
+        var m = Math.floor((diff % 3600000) / 60000);
+        var s = Math.floor((diff % 60000) / 1000);
+
+        daysEl.textContent = d;
+        hoursEl.textContent = pad(h);
+        minsEl.textContent = pad(m);
+        secsEl.textContent = pad(s);
+      }
+
+      tick();
+      var timer = setInterval(tick, 1000);
+    })();
+  </script>
+</body>
+</html>
